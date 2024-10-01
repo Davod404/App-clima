@@ -1,0 +1,240 @@
+@font-face {
+    font-family: suse;
+    src: url('../fonts/SUSE-VariableFont_wght.ttf');
+}
+
+:root {
+    --font-suse: suse;
+    --fs-h1:3.5rem;
+    --fs-h2:2.5rem;
+    --fs-h3:2rem;
+    --fs-h4:1.5rem;
+    --fs-h5:1.25rem;
+    --fs-sm:0.75rem;
+
+    --text-color: #e7eaeeff;
+    --secondary-text-color:#191E24;
+    --background-color: #03010f;
+
+    --sunny-color: #ffff86;
+    --cloudy-color: #7da1a2;
+    --rainy-color: #24406dff;
+    --storm-color: #1d2541ff;
+
+    --today-color: var(--storm-color); /* añadir con js mas adelante*/
+}
+
+html {font-size: 100%; background-color: #171717;}
+
+body{
+    font-family: var(--font-suse), system-ui;
+    color: var(--text-color);
+
+    background: linear-gradient(to bottom left, var(--background-color), #08002aa9);
+}
+
+
+
+p {font-size: 1rem;}
+
+h1 {font-size: var(--fs-h1); margin: 24px 0;}
+
+h2 {font-size: var(--fs-h2); margin: 16px 0;}
+
+h3 {font-size: var(--fs-h3); margin: 8px 0;}
+
+h4 {font-size: var(--fs-h4); margin: 4px 0;}
+
+h5 {font-size: var(--fs-h5); margin: 2px 0;}
+
+
+@media (min-width: 0) and (max-width: 424px) {
+    html{
+        font-size: 75%;
+        transition: 0.4s;
+    }
+}
+
+small {font-size: var(--fs-sm);}
+
+body{
+    padding: 6px 8px;
+    display: flex;
+    justify-content: center;
+}
+
+main{
+    width: 95%;
+    max-width: 1550px;
+    padding: 12px 8px;
+    border-radius: 8px;
+    
+    header{
+        padding: 12px 8px;
+
+        input{
+            margin: 0 8px;
+            padding: 12px 8px;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            border: solid 2px #ffffff34;
+            border-radius: 8px;
+            font-size: var(--fs-h5);
+        }
+        input::placeholder{
+            color: var(--text-color);
+            font-family: var(--font-suse);
+            font-size: var(--fs-h5);
+            opacity: 0.5;
+        }
+    }
+}
+
+.n1-s{
+    background-color: var(--today-color);
+
+    margin: 12px 0;
+    padding: 12px;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    .r1{
+        min-height: 350px;
+        margin: 16px 0;
+
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: wrap;
+        
+        .today-box{
+            background-color: var(--background-color);
+            
+            margin: 12px;
+            padding: 12px;
+            
+            flex-grow: 1;
+            border: solid 2px #ffffff34;
+            border-radius: 8px;
+        }
+
+        .presentation{
+            width: 58ch;
+            padding: 0 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            flex-grow: 1;
+            .title-box{
+                background-color: var(--background-color);
+            
+                margin: 12px 0;
+                padding: 0 12px;
+            
+                border: solid 2px #ffffff34;
+                border-radius: 8px;
+                
+                h2{
+                    padding: 10px 16px;
+                }
+            }
+
+            .city-box{
+                background-color: var(--background-color);
+                
+                margin: 12px 0;
+                padding: 0 12px;
+                
+                border: solid 2px #ffffff34;
+                border-radius: 8px;
+                
+                h2{
+                    padding: 10px 16px;
+                }
+            }
+        }
+    }
+
+    .r2{
+        margin: 24px 0;
+        padding: 0 12px;
+        
+        display: grid;
+        grid-auto-rows: 230px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+        align-items: center;
+        
+        .days{
+            background-color: var(--cloudy-color);
+            
+            width: 100%;
+            height: 200px;
+            
+            border-radius: 8px;
+        }
+    }
+}
+
+.n2-s{
+    background-color: var(--today-color);
+
+    margin: 24px 0;
+    padding: 24px 12px;
+    
+    border-radius: 8px;
+
+    .various-container{
+        padding: 0 16px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .various{
+            height: 210px;    
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+    }
+
+}
+
+.a{
+    width: 25%;
+    background-color:var(--background-color);
+    border: solid 2px #ffffff34;
+
+    flex-grow: 1;
+
+    /* verde(sin peligro por exposicion) amarillo(bajo riesgo de lesion sin proteccion) 
+    naranjo(alto riesgo de lesion sin proteccion) 
+    rojo(muy alto riesgo de lesion sin proteccion) 
+    morado(extremo sin proteccion) */
+}
+
+.b{
+    width: 65%;
+    background-color: var(--background-color);
+    border: solid 2px #ffffff34;
+
+    flex-grow: 1;
+}
+
+.c{
+    width: 65%;
+    background-color: var(--background-color);
+    border: solid 2px #ffffff34;
+
+    flex-grow: 1;
+}
+
+.d{
+    width: 25%;
+    background-color: var(--background-color);
+    border: solid 2px #ffffff34;
+    
+    flex-grow: 1;
+}
