@@ -29,14 +29,15 @@ function apiURL(){
 
         
         weather = a.condition.text
-        uv = a.uv
+        uv = a.uv.toString()
         wind = a.wind_kph.toString().concat("km")
         humidity = a.humidity.toString().concat("%")
 
         country = c.country
         city = c.name
         
-
+        console.log(weather + ", " + uv + ", " + wind + ", " + humidity)
+        console.log(country + ", " + city)
 
         // Location
             // PAIS = location, country
@@ -56,31 +57,18 @@ function apiURL(){
             // TIEMPO DE 6 DIAS SIGUIENTES = forecastday, 1-7, 
 
 
-
-
-        function getCurrent(){
-
-            for (let items of Object.entries(a)) {
-                ab = items
-                console.log(ab)
-            }
-        }
-
         function getForecast(){
 
             for (let elements of b) {
-
-                ba = Object.entries(elements)
                 
-                ba.forEach(element => {
-                    bb = element.valueOf()
-                });
+                today = Array(elements).splice(0,1)
+
+                console.log(elements)
+                console.log(today)
             }
-            
         }
 
-        // getCurrent()
-        // getForecast()
+        getForecast()
 
     }).catch(err => {
         console.error("ERROR: ", err.message)
