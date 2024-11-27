@@ -21,7 +21,7 @@ function apiURL(){
 
         objData = new Object(data).valueOf()
 
-        console.log(objData)
+        // console.log(objData)
 
         a = objData.current
         b = objData.forecast.forecastday
@@ -33,42 +33,44 @@ function apiURL(){
         wind = a.wind_kph.toString().concat("km")
         humidity = a.humidity.toString().concat("%")
 
-        country = c.country
-        city = c.name
-        
-        console.log(weather + ", " + uv + ", " + wind + ", " + humidity)
-        console.log(country + ", " + city)
+        function getForecast(){
 
-        // Location
-            // PAIS = location, country
-            // CITY = location, city
-            //# variable q debe cambiar dependiendo de la ubicacion del navegador o ubicacion gps si es ingresada 
-            
-        // Current
-            // UV = current, uv
-            // VELOCIDAD DEL VIENTO = current, wind_kph
-            // HUMEDAD = current, humidity
-            // TIEMPO DE HOY = current, condition, text
+            for (let elements of b) {
+                // console.log(elements)
+                
+                
+                for (const key in elements) {
+                    if (Object.prototype.hasOwnProperty.call(elements, key)) {
+                        const element = elements[key];
+                        console.log(element)
+                    }
+                }
+
+
+
+
+
+
         
+            }
+        }
+
         // Forecast    
             // TEMPERATURA MAXIMA/MINIMA = forecastday, 0, maxtemp_c / mintemp_c
             // PROBABILIDAD DE PRECIPITACION = forecastday, 0, daily_will_it_rain	
             // TEMPERATURA MAXIMA/MINIMA = forecastday, 1-7, maxtemp_c / mintemp_c
             // TIEMPO DE 6 DIAS SIGUIENTES = forecastday, 1-7, 
 
-
-        function getForecast(){
-
-            for (let elements of b) {
-                
-                today = Array(elements).splice(0,1)
-
-                console.log(elements)
-                console.log(today)
-            }
-        }
-
         getForecast()
+
+        country = c.country
+        city = c.name
+        
+        // console.log(weather + ", " + uv + ", " + wind + ", " + humidity)
+        // console.log(country + ", " + city)
+
+        
+
 
     }).catch(err => {
         console.error("ERROR: ", err.message)
@@ -81,6 +83,32 @@ apiURL()
 
 
 
+
+
+
+                            // PRUEBAS
+
+                            // forecastEntries = Object.entries(elements)
+                            // forecastKey = Object.keys(elements)
+                            // forecastVal = Object.values(elements)
+
+                            // ba = new Map([forecastKey, forecastVal])
+                            // console.log(ba)
+
+
+                            // ba = Array(elements)
+                            // ba.forEach(element => {
+                            //     bb = Object.entries(element)
+                            //     bc = bb[2]
+                            //         console.log(bb)
+                                
+                            //     bb.forEach(items =>{
+                            //         bc = items
+                            //         console.log(bc)
+                            //     })
+                            // });
+
+                            // console.log(ba)
 
 
 
